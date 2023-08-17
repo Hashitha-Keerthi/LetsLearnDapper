@@ -28,8 +28,10 @@ namespace LetsLearnDapper
         {
 
             services.AddDbContext<ApplicationDbContext>(options =>
-             options.UseSqlServer(Configuration.GetConnectionString("DapperDbConnection")));
+            options.UseSqlServer(Configuration.GetConnectionString("DapperDbConnection")));
             services.AddScoped<ICompanyRepository, CompanyRepositoryEF>();
+            services.AddScoped<ICompanyRepository, CompanyRepository>();
+
 
             services.AddControllersWithViews();
         }
