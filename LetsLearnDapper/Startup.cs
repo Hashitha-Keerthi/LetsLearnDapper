@@ -1,4 +1,5 @@
 using LetsLearnDapper.Data;
+using LetsLearnDapper.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,7 @@ namespace LetsLearnDapper
 
             services.AddDbContext<ApplicationDbContext>(options =>
              options.UseSqlServer(Configuration.GetConnectionString("DapperDbConnection")));
+            services.AddScoped<ICompanyRepository, CompanyRepositoryEF>();
 
             services.AddControllersWithViews();
         }
